@@ -8,5 +8,9 @@
     margin: 2rem 0rem;
 }
 .regularText {
-    margin: 10px 2rem;
+    margin: 10px 4rem;
+}
+.addForm {
+    /* border: 1px solid #000; */
+    margin: 2rem 4rem;
 }
