@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{{> head}}
 <body>
-    <h1>HELLO</h1>
+    {{{body}}}
+
+{{> footer}}
 </body>
 </html>
+{{!-- Это главный layout. Основа каждой страницы. Она состоит из частей: head, body, footer, navbar.
+Нам не нужно указать хэддер на каждой странице, а создать часть хед один раз и потом каждый раз добавлять её в новую страницу. 
+{{{body}} это тело каждой страницы, текст мы прописываем в каждом файле разный. В футтере храним скрипты.--}}
