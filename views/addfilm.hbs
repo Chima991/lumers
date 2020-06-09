@@ -6,35 +6,35 @@
   <form action="/addfilm" class="col s12 " method="POST">
     <div class="row">
       <div class="input-field col s3">
-        <input id="title" type="text" class="validate" required>
+        <input id="title" name="title" type="text" class="validate" required>
         <label for="title">Название фильма</label>
         <span class="helper-text" data-error="Введите название фильма"></span>
       </div>
       <div class="input-field col s2">
-        <input id="year" type="number" class="validate" required ">
+        <input id="year" name="year" type="number" class="validate" required>
         <label for="year">Год выпуска</label>
         <span class="helper-text" data-error="Введите год выпуска фильма"></span>
       </div>
       <div class="input-field col s2">
-        <input id="genre" type="text" class="validate" required>
+        <input id="genre" name="genre" type="text" class="validate" required>
         <label for="genre">Жанр</label>
         <span class="helper-text" data-error="Введите жанр фильма"></span>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s3">
-        <textarea id="description" cols="50" rows="30" class="materialize-textarea" required></textarea>
+        <textarea id="description" name="description" cols="50" rows="30" class="materialize-textarea" required></textarea>
         <label for="description">Описание</label>
         <span class="helper-text" data-error="Введите описание фильма"></span>
       </div>
       <div class="input-field col s4">
-        <input id="img" type="text" class="validate" required > 
+        <input id="img" name="img" type="text" class="validate" required > 
         <label for="img">URL-картинки к фильму</label>
         <span class="helper-text" data-error="Введите ссылку на картинку фильма"></span>
       </div>
     </div>
-    <button class="btn-large waves-effect waves-light" type="submit" name="action">Отправить
-    <i class="material-icons right">send</i>
+    <button class="btn-large waves-effect waves-light" type="submit">Отправить
+      <i class="material-icons right">send</i>
     </button>
     </form>
 </div>
