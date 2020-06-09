@@ -23,15 +23,22 @@ app.get('/', (req, res) => {
     res.status(200)
     // res.sendFile(path.join(__dirname,'views', 'index.html')) 
     // с помощью hbs делаем это через метод рендер, и сенд файл нам не нужен
-    res.render('index')
+    res.render('index', {
+        title: 'Фильмы'
+    })
+
+app.use(express.static('public'))
 
 })
 // тут обрабатываем такой же гет запрос на только на страницу с списком всех фильмов
-app.get('/films', (req, res) => {
+app.get('/addfilm', (req, res) => {
     res.status(200)
     // res.sendFile(path.join(__dirname,'views', 'films.html'))
-    res.render('films')
+    res.render('addfilm', {
+        title: 'Добавить фильм'
+    })
 })
+
 
 // создаём порт и включаем сервер. Просто конструкция для запуска сервера, пока не пойму всех принципов, что тут юзаются
 const PORT = process.env.PORT || 3000
