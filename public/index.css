@@ -1,11 +1,7 @@
-.buttonAddFilm {
-    text-align: right;
-    margin: 2rem 2rem ;
-    padding: 0px 170px;
-}
 .mainTitle {
     text-align: center;
     margin: 2rem 0rem;
+    font-size: 45px;
 }
 .regularText {
     margin: 10px 4rem;
@@ -13,4 +9,49 @@
 .addForm {
     /* border: 1px solid #000; */
     margin: 2rem 4rem;
+}
+.parent > div {
+    float: left; 
+    /* border: 1px solid #000; */
+    margin-left: 2%;
+}
+.searchAndSort { 
+    width: 56%;
+}
+.buttonAdd {
+    width: 40%;
+}
+.search {
+    margin-bottom: 0.7rem;
+}
+.meet {
+    color: white;
+}
+.titleHead {
+    font-size: 30px;
+    padding-bottom: 15px;
+}
+.card {
+    border: 1px solid #000;
+    width: 45%;
+}
+.card-content > div {
+    margin-bottom: 1px;
+}
+.btn-delete {  
+    background-color:darkred;
+}
+.buttonFilm > a {
+    margin-right: 1rem;
+}
+.btn-delete:focus {  
+    background-color:darkred;
+}
+.description {
+    /* white-space: nowrap; */
+    overflow: hidden;
+    height: 25px;
+    text-overflow: ellipsis;
+    
+    
 }

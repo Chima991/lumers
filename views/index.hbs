@@ -1,4 +1,47 @@
-<h3 class="mainTitle" >Lumer's - энциклопедия кино!</h3>
-<div class="buttonAddFilm">
-    <a href="/addfilm" class="waves-effect waves-light large btn-large"><i class="large material-icons right">add_box</i>Добавить фильм</a>
+<h1 class="mainTitle" >Lumer's - энциклопедия кино!</h1>
+
+<div class="parent">
+    <div class="searchAndSort">
+        <div class="search">
+            Тут будет поиск
+        </div>
+        <div class="sort">
+            А тут будет сортировка
+        </div>
+    </div>
+    <div class="buttonAdd">
+        <a href="/addfilm" class="waves-effect waves-light large btn-large"><i class="large material-icons right">add_box</i>Добавить фильм</a>
+    </div>
 </div>
+<div class="meet">Добро пожаловать!</div>
+
+{{#if allfilms.length}}
+{{#each allfilms}}
+<div class="parent">
+    <div class="card horizontal z-depth-3">
+        <div class="card-image">
+            <img width="250" height="250" src={{img}}>
+        </div>
+        <div class="card-stacked">
+            <div class="card-content">
+                <div class="titleHead">{{title}}</div>
+                <div>Жанр: {{genre}}</div>
+                <div>Год выпуска: {{year}}</div>
+                <div class="description">Описание: {{description}}</div>
+            </div>
+            <div class="card-action">
+                <span class="buttonFilm">
+                    <a href="{{id}}" class="waves-effect waves-light btn-small"><i class="material-icons right">dehaze</i>Подробнее</a>
+                    {{!-- <a href="#" class="waves-effect waves-light btn-small"><i class="material-icons right">edit</i>Редактировать</a>
+                    <a href="#" class="waves-effect waves-light btn-delete btn-small"><i class="material-icons right">delete</i>Удалить</a> --}}
+                    {{!-- Эти кнопки оставляем на карточку, но тут они не нужны --}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+{{else}}
+    <p>Библиотека фильмов пустая</p>
+{{/if}}
+
