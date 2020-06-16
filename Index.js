@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const exphbs = require('express-handlebars')
 const Film = require('./models/film') // экспортируем класс Film из файл film.js
+const fs = require('fs')
 
 // подключаем express через обьект app
 const app = express()
@@ -49,6 +50,14 @@ app.post('/addfilm', async (req, res) => {
     res.redirect('/')
 })
 
+app.get('/:id', async (req, res) => { // С помощью двоеточия указывается динамические параметры. ID каждого фильма является эндпоинтом для страницы каждого фильма
+    const currentFilm = await Film.getById(req.params.id)
+    res.status(200)
+    res.render('filmID', {
+        title:`${currentFilm.title}`, // тайтл через динамику теущего фильма, а также передаём сам обьект в рендер
+        currentFilm
+    })
+})
 
 
 // создаём порт и включаем сервер. Просто конструкция для запуска сервера, пока не пойму всех принципов, что тут юзаются

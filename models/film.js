@@ -62,6 +62,12 @@ class Film {
         })
         
     }
+
+    static async getById(id) { // Получаем инфу о фильме согласно ID. Если параметр айди совпадает с айди в эндпоинте, возвращаем обьект текущего фильма.
+// Далее передаём эти данные на Index, где заносим в переменную, с которой забираем каждый ключ.
+        const films = await Film.getAll()
+        return films.find(c => c.id === id)
+    }
 }
 
 module.exports = Film
