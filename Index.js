@@ -54,11 +54,26 @@ app.get('/:id', async (req, res) => { // С помощью двоеточия у
     const currentFilm = await Film.getById(req.params.id)
     res.status(200)
     res.render('filmID', {
-        title:`${currentFilm.title}`, // тайтл через динамику теущего фильма, а также передаём сам обьект в рендер
+        title: `${currentFilm.title}`, // тайтл через динамику теущего фильма, а также передаём сам обьект в рендер
         currentFilm
     })
 })
 
+app.get('/:id/edit', async (req, res) => {
+    if (!req.query.allow) {
+        return res.redirect('/')
+    }
+    const currentFilm = await Film.getById(req.params.id)
+    res.render('edit', {
+        title: `Редактировать ${currentFilm.title}`,
+        currentFilm
+    })
+})
+app.post('/edit', async (req, res) => {
+    await Film.update(req.body)
+    const currentFilm = await Film.getById(req.params.id)
+    res.redirect(('/'))
+})
 
 // создаём порт и включаем сервер. Просто конструкция для запуска сервера, пока не пойму всех принципов, что тут юзаются
 const PORT = process.env.PORT || 3000

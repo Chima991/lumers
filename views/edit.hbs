@@ -1,0 +1,41 @@
+<h3 class="mainTitle">Редактировать {{currentFilm.title}}</h3>
+<span class="regularText">Заполните форму ниже: укажите название, жанр, год выпуска и описание. И ваш фильм добавится на сайт.</span>
+<span><a class="waves-effect waves-light large btn" href="/"><i class="large material-icons right">arrow_back</i>Вернуться к фильмам</a></span>
+
+<div class="addForm" class="row">
+  <form action="/edit" class="col s12 " method="POST">
+    <div class="row">
+      <div class="input-field col s3">
+        <input id="title" name="title" type="text" class="validate" required value="{{currentFilm.title}}">
+        <label for="title">Название фильма</label>
+        <span class="helper-text" data-error="Введите название фильма"></span>
+      </div>
+      <div class="input-field col s2">
+        <input id="year" name="year" type="number" class="validate" required min="1895" max="2020" value="{{currentFilm.year}}">
+        <label for="year">Год выпуска</label>
+        <span class="helper-text" data-error="Введите год выпуска фильма"></span>
+      </div>
+      <div class="input-field col s2">
+        <input id="genre" name="genre" type="text" class="validate" required value="{{currentFilm.genre}}">
+        <label for="genre">Жанр</label>
+        <span class="helper-text" data-error="Введите жанр фильма"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s3">
+        <textarea id="description" name="description" cols="50" rows="30" class="materialize-textarea" required value="{{currentFilm.description}}">{{currentFilm.description}}</textarea>
+        <label for="description">Описание</label>
+        <span class="helper-text" data-error="Введите описание фильма"></span>
+      </div>
+      <div class="input-field col s4">
+        <input id="img" name="img" type="text" class="validate" required value="{{currentFilm.img}}"> 
+        <label for="img">URL-картинки к фильму</label>
+        <span class="helper-text" data-error="Введите ссылку на картинку фильма"></span>
+      </div>
+    </div>
+    <input type="hidden" name="id" value="{{currentFilm.id}}">
+    <button class="btn-large waves-effect waves-light" type="submit">Изменить
+      <i class="material-icons right">send</i>
+    </button>
+    </form>
+</div>

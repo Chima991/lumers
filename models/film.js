@@ -22,6 +22,27 @@ class Film {
             id: this.id
         })
     }
+
+    static async update(currentfilm) {
+        const allfilms = await Film.getAll()
+
+        const idx = allfilms.findIndex(c => c.id === currentfilm.id)
+        allfilms[idx] = currentfilm    
+
+        return new Promise((resolve, reject) => {
+            fs.writeFile(
+                path.join(__dirname, '..', 'data', 'films.json'),
+                JSON.stringify(allfilms),
+                (err) => {
+                    if (err) {
+                        reject()
+                    } else {
+                        resolve()
+                    }
+                }
+            )
+        })
+    }
 // записываем данные в файл 
     async save() {
         const films = await Film.getAll()
