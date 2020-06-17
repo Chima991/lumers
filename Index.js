@@ -72,8 +72,9 @@ app.get('/:id/edit', async (req, res) => {
 app.post('/edit', async (req, res) => {
     await Film.update(req.body)
     const currentFilm = await Film.getById(req.params.id)
-    res.redirect(('/'))
+    res.redirect('/')
 })
+
 
 // создаём порт и включаем сервер. Просто конструкция для запуска сервера, пока не пойму всех принципов, что тут юзаются
 const PORT = process.env.PORT || 3000

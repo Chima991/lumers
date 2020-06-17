@@ -43,6 +43,7 @@ class Film {
             )
         })
     }
+
 // записываем данные в файл 
     async save() {
         const films = await Film.getAll()
