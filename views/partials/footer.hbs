@@ -1,1 +1,60 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    document.querySelector('#titleAZ').onclick = mySortAZ;
+    document.querySelector('#titleZA').onclick = mySortZA;
+    document.querySelector('#yearHigh').onclick = mySortH;
+    document.querySelector('#yearDown').onclick = mySortD;
+
+    function insertAfter(elem, refElem) {
+        return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+    }
+
+    function mySortAZ() {
+        let nav = document.querySelector('#nav');
+        for (let i = 0; i < nav.children.length; i++) {
+            for (let j = i; j < nav.children.length; j++) {
+                if (nav.children[i].getAttribute('title-sort') > nav.children[j].getAttribute('title-sort')) {
+                    replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
+                    insertAfter(replacedNode, nav.children[i]);
+                }
+            }
+        }
+    }
+
+    function mySortZA() {
+        let nav = document.querySelector('#nav');
+        for (let i = 0; i < nav.children.length; i++) {
+            for (let j = i; j < nav.children.length; j++) {
+                if (nav.children[i].getAttribute('title-sort') < nav.children[j].getAttribute('title-sort')) {
+                    replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
+                    insertAfter(replacedNode, nav.children[i]);
+                }
+            }
+        }
+    }
+
+    function mySortH() {
+        let nav = document.querySelector('#nav');
+        for (let i = 0; i < nav.children.length; i++) {
+            for (let j = i; j < nav.children.length; j++) {
+                if (+nav.children[i].getAttribute('year-sort') > +nav.children[j].getAttribute('year-sort')) {
+                    replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
+                    insertAfter(replacedNode, nav.children[i]);
+                }
+            }
+        }
+    }
+
+    function mySortD() {
+        let nav = document.querySelector('#nav');
+        for (let i = 0; i < nav.children.length; i++) {
+            for (let j = i; j < nav.children.length; j++) {
+                if (+nav.children[i].getAttribute('year-sort') < +nav.children[j].getAttribute('year-sort')) {
+                    replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
+                    insertAfter(replacedNode, nav.children[i]);
+                }
+            }
+        }
+    }
+    
+</script>

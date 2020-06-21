@@ -1,26 +1,36 @@
 <h1 class="mainTitle" >Lumer's - энциклопедия кино!</h1>
 
 <div class="parent">
-    <div class="searchAndSort">
-        <div class="search">
-            Тут будет поиск
-        </div>
-        <div class="sort">
-            А тут будет сортировка
-        </div>
+    <form action=""></form>
+    <div class="search" id="searchWrapper">
+        <input id="search" type="text" name="searchBar" placeholder="Введите название фильма" >
+    </div>
+    <div class="buttonSearch">
+        <a class="waves-effect waves-light btn" type="submit"><i class="material-icons">search</i></a>
     </div>
     <div class="buttonAdd">
         <a href="/addfilm" class="waves-effect waves-light large btn-large"><i class="large material-icons right">add_box</i>Добавить фильм</a>
     </div>
 </div>
-<div class="meet">Добро пожаловать!</div>
 
+
+<div class="meet">Д</div>
+
+
+<div class="sort"> 
+    <span>Сортировать по:</span>
+    <button id="titleAZ" class="waves-effect waves-light btn-small">Названию (А-Я)</button>
+    <button id="titleZA" class="waves-effect waves-light btn-small">Названию (Я-А)</button>
+    <button id="yearHigh" class="waves-effect waves-light btn-small">Году выпуска (по возрастанию)</button>
+    <button id="yearDown" class="waves-effect waves-light btn-small">Году выпуска (по убыванию)</button>
+</div>
+
+<div id="nav" class="parent">
 {{#if allfilms.length}}
 {{#each allfilms}}
-<div class="parent">
-    <div class="card horizontal z-depth-3">
+    <div class="nav-item card horizontal z-depth-3" year-sort="{{year}}" title-sort="{{title}}">
         <div class="card-image">
-            <img width="250" height="250" src={{img}}>
+            <img  height="250" src={{img}}>
         </div>
         <div class="card-stacked">
             <div class="card-content">
@@ -36,9 +46,13 @@
             </div>
         </div>
     </div>
-</div>
 {{/each}}
+</div>
 {{else}}
-    <p>Библиотека фильмов пустая</p>
+<div class="empty">
+    <div>Библиотека фильмов пустая. Добавьте фильм, будьте первым!</div>
+    <div><i class="material-icons medium">navigation</i></div>
+</div>
+
 {{/if}}
 

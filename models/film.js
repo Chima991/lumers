@@ -44,6 +44,28 @@ class Film {
         })
     }
 
+    static async delete(currentfilm) {
+        const allfilms = await Film.getAll()
+
+        const idx = allfilms.findIndex(c => c.id === currentfilm.id)
+        allfilms[idx] = currentfilm    
+        allfilms.splice(idx, 1)
+
+        return new Promise((resolve, reject) => {
+            fs.writeFile(
+                path.join(__dirname, '..', 'data', 'films.json'),
+                JSON.stringify(allfilms),
+                (err) => {
+                    if (err) {
+                        reject()
+                    } else {
+                        resolve()
+                    }
+                }
+            )
+        })
+    }
+
 // записываем данные в файл 
     async save() {
         const films = await Film.getAll()
@@ -65,6 +87,7 @@ class Film {
         
     }
 
+
     /* 
     метод позволяет получить все данные из получаемого обьекта. Файл читается из джсона и парсится.
     */
@@ -84,6 +107,7 @@ class Film {
         })
         
     }
+
 
     static async getById(id) { // Получаем инфу о фильме согласно ID. Если параметр айди совпадает с айди в эндпоинте, возвращаем обьект текущего фильма.
 // Далее передаём эти данные на Index, где заносим в переменную, с которой забираем каждый ключ.

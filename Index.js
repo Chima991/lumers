@@ -50,13 +50,18 @@ app.post('/addfilm', async (req, res) => {
     res.redirect('/')
 })
 
+
 app.get('/:id', async (req, res) => { // С помощью двоеточия указывается динамические параметры. ID каждого фильма является эндпоинтом для страницы каждого фильма
-    const currentFilm = await Film.getById(req.params.id)
-    res.status(200)
-    res.render('filmID', {
-        title: `${currentFilm.title}`, // тайтл через динамику теущего фильма, а также передаём сам обьект в рендер
-        currentFilm
-    })
+    try {
+        const currentFilm = await Film.getById(req.params.id)
+        res.status(200)
+        res.render('filmID', {
+            title: `${currentFilm.title}`, // тайтл через динамику теущего фильма, а также передаём сам обьект в рендер
+            currentFilm
+        })
+    } catch (e) {
+        console.log(e)
+    }
 })
 
 app.get('/:id/edit', async (req, res) => {
@@ -75,6 +80,11 @@ app.post('/edit', async (req, res) => {
     res.redirect('/')
 })
 
+app.get('/:id/delete', async (req, res) => {
+    const currentFilm = await Film.getById(req.params.id)
+    Film.delete(currentFilm)
+    res.redirect('/')
+})
 
 // создаём порт и включаем сервер. Просто конструкция для запуска сервера, пока не пойму всех принципов, что тут юзаются
 const PORT = process.env.PORT || 3000
