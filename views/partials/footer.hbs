@@ -59,11 +59,57 @@
 </script>
 <script>
     document.querySelector('#elastic').oninput = function() {
-        let val = this.value.trim()
-        let elasticItems = document.querySelectorAll('.elastic div')
+        // if val is М -> м
+        // if val is м -> м
+        let val = this.value.trim().toLowerCase()
+        let elasticItems = document.querySelectorAll('.nav-item')
+        if (val != '') {
+            elasticItems.forEach(function (elemf) {
+                console.log(elemf)
+                elem1 = elemf.getAttribute('title-sort')
+                elem = elemToLowerCase(elem1)
+
+                console.log(elem)
+                if (elem.search(val) == -1) {
+                    elemf.classList.add('hide');
+                } else {
+                    elemf.classList.remove('hide');
+                }
+            })    
+        } else {
+            elasticItems.forEach(function (elem) {
+                elem.classList.remove('hide');
+        })
+        }
+    }
+
+function elemToLowerCase(elem1) {
+    return elem = elem1.toLowerCase()
+}
+</script>   
+
+{{!-- let elasticItems2 = document.querySelectorAll('.nav-item')
+        let elasticItems = []
+
+
+
+                console.log(elemf)
+                let elem = elemToLowerCase(elemf)
+                console.log(elem)
+
+
+
+        elasticItems2.forEach(function (elem2) {
+            let Atr = elem2.getAttribute('title-sort')
+            let AtrLC = Atr.toLowerCase()
+            elasticItems.push(AtrLC)
+        })
+        console.log(elasticItems)
+        console.log(val)
         if (val != '') {
             elasticItems.forEach(function (elem) {
-                if (elem.innerText.search(val) == -1) {
+                console.log(elem)
+                if (elem.search(val) == -1) {
                     elem.classList.add('hide');
                 } else {
                     elem.classList.remove('hide');
@@ -74,5 +120,4 @@
                 elem.classList.remove('hide');
         })
         }
-    }
-</script>   
+    } --}}
