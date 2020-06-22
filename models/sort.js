@@ -15,3 +15,17 @@ function mySort() {
 function insertAfter(elem, refElem) {
     return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
 }
+
+
+if (elem.innerText.search(val) == -1)  {
+    elem.classList.add('hide');
+} else {
+    elem.classList.remove('hide');
+}
+}
+} else {
+elasticItems.forEach(function(elem) {
+elem.classList.remove('hide');
+});
+}
+}

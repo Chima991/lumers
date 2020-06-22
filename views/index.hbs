@@ -2,8 +2,8 @@
 
 <div class="parent">
     <form action=""></form>
-    <div class="search" id="searchWrapper">
-        <input id="search" type="text" name="searchBar" placeholder="Введите название фильма" >
+    <div class="search">
+        <input id="elastic" type="text" placeholder="Введите название фильма" >
     </div>
     <div class="buttonSearch">
         <a class="waves-effect waves-light btn" type="submit"><i class="material-icons">search</i></a>
@@ -25,10 +25,10 @@
     <button id="yearDown" class="waves-effect waves-light btn-small">Году выпуска (по убыванию)</button>
 </div>
 
-<div id="nav" class="parent">
+<div id="nav" class="elastic parent">
 {{#if allfilms.length}}
 {{#each allfilms}}
-    <div class="nav-item card horizontal z-depth-3" year-sort="{{year}}" title-sort="{{title}}">
+    <div id="nav-item" class="card horizontal z-depth-3" year-sort="{{year}}" title-sort="{{title}}">
         <div class="card-image">
             <img  height="250" src={{img}}>
         </div>

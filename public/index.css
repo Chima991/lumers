@@ -20,6 +20,12 @@
 .search { 
     width: 30%;
 }
+.elastic div.hide {
+    display: none;
+}
+
+
+
 .buttonAdd {
     width: 30%;
 }
@@ -107,6 +113,6 @@
 .info > div {
     padding-top: 18px;
 }
-.elastic li.hide {
+.elastic div.hide {
     display: none;
 }
