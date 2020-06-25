@@ -8,8 +8,7 @@
   },  
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "web": "node ./index.js"
+    "dev": "nodemon index.js"
   },
   "author": "Artem Chimekos <chimekos.a@gmail.com>",
   "license": "ISC",
