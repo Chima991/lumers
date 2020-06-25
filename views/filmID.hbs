@@ -12,11 +12,20 @@
         <div>Жанр: {{currentFilm.genre}}</div>
         <div>Описание: {{currentFilm.description}}</div>
     </div>
-    <div class="buttonsfilm">
-        <a href="{{currentFilm.id}}/edit?allow=true" class="waves-effect waves-light btn"><i class="material-icons right">edit</i>Редактировать</a>
-        <a href="{{currentFilm.id}}/delete" class="waves-effect waves-light btn-delete btn"><i class="material-icons right">delete</i>Удалить</a>
+    <div class="buttonFilm">
+        <div>
+            <a href="{{currentFilm.id}}/edit?allow=true" type="submit" class="waves-effect waves-light btn"><i class="material-icons right">edit</i>Редактировать</a>
+        </div>
+        <div>
+            <form action="/delete" method="POST"> 
+            <input type="hidden" name="id" value="{{currentFilm.id}}"> 
+            <button class="waves-effect waves-light btn-delete btn"><i class="material-icons right">delete</i>Удалить</button>
+        </form>
+        </div>
+        
     </div>
 </div>
+
 
 
 
