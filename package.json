@@ -5,10 +5,11 @@
   "main": "index.js",
   "engines": {
     "node": "14.2.0"
-  },
+  },  
   "scripts": {
-    "start":"node index.js",
-    "dev":"nodemon index.js"
+    "start":"node run index.js",
+    "dev":"nodemon run index.js",
+    "web": "node ./index.js"
   },
   "author": "Artem Chimekos <chimekos.a@gmail.com>",
   "license": "ISC",
