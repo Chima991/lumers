@@ -115,7 +115,7 @@ app.post('/delete', async (req, res) => {
 })
 
 // создаём порт и включаем сервер
-const PORT = process.env.PORT
+const PORT = process.env.POR
 
 
 async function start() {
