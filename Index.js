@@ -7,7 +7,6 @@ const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-acce
 
 const Film = require('./models/film') // экспортируем класс Film из файл film.js
 const fs = require('fs')
-const { extname } = require('path')
 
 // подключаем express через обьект app
 const app = express()
@@ -19,7 +18,7 @@ const hbs = exphbs.create({
     extname: 'hbs', // расширение всех файлов, что передаются. Для удобства.
     handlebars: allowInsecurePrototypeAccess(Handlebars),
 })
-
+app.use(express.static('public')) // делаем папку "паблик" публичной, так наши стили css будут отображаться.
 // ДАлее идёт соеденение hbs и express
 app.engine('hbs', exphbs({
     handlebars: allowInsecurePrototypeAccess(Handlebars),
@@ -30,7 +29,7 @@ app.engine('hbs', exphbs({
 // далее мы устанавливаем настройки для hbs и express. Устанавливаем движок для использования и устанавливаем папку, в которой хранятся все hbs страницы
 app.set('view engine', 'hbs') // параметры видимый движок и его название(как при регистрации выше)
 app.set('views', 'views') //тут папку(по умолчанию views, но на всякий прописываем)
-app.use(express.static('public')) // делаем папку "паблик" публичной, так наши стили css будут отображаться.
+
 app.use(express.urlencoded({extended: true})) // делаем декодинг получаем данных з формы, теперь они с формата undefined становятся обьектом
 
 /* гет запрос - это когда мы пытаемся зайти на страницу с роутом, указаным первым параметром. После чего респонс делает метод файлсенд, а именно
