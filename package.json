@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "standart CRUD for my CV and first work",
   "main": "index.js",
+  "engines": {
+    "node": "14.2.0"
+  },
   "scripts": {
-    "start": "node run index.js",
-    "dev": "nodemon run index.js"
+    "start":"node run index.js",
+    "dev":"nodemon run index.js"
   },
   "author": "Artem Chimekos <chimekos.a@gmail.com>",
   "license": "ISC",

@@ -126,8 +126,8 @@ async function start() {
             useFindAndModify: false,
             useUnifiedTopology: true
         })
-        app.listen(PORT, () => {
-            console.log(`Server is running on PORT ${PORT}`)
+        app.listen(process.env.PORT, () => {
+            console.log(`Server is running on PORT ${process.env.PORT}`)
         })
     } catch(e) {
         console.log(e)
