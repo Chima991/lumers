@@ -1,11 +1,14 @@
 const express = require('express')
 const path = require('path')
+const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const Film = require('./models/film') // экспортируем класс Film из файл film.js
 const fs = require('fs')
 
 // подключаем express через обьект app
 const app = express()
+
+
 
 // Настраиваем конфигурацию дял обьекта hbs. Hbs такой движок, который добавляет больше функций в стандартные файлы html.Например layouts.
 const hbs = exphbs.create({
@@ -85,9 +88,21 @@ app.get('/:id/delete', async (req, res) => {
     Film.delete(currentFilm)
     res.redirect('/')
 })
-
-// создаём порт и включаем сервер. Просто конструкция для запуска сервера, пока не пойму всех принципов, что тут юзаются
+// создаём порт и включаем сервер
 const PORT = process.env.PORT || 3000
-app.listen(PORT, () => {
-    console.log(`Server is running on PORT ${PORT}`)
-})
+
+
+async function start() {
+    try {
+        const url = 'mongodb+srv://Artem:FjlDjcFxjLa25zo8@filmscluster-lf2d7.mongodb.net/<dbname>?retryWrites=true&w=majority'
+        await mongoose.connect(url, {useNewUrlParser: true})
+        app.listen(PORT, () => {
+            console.log(`Server is running on PORT ${PORT}`)
+        })
+    } catch(e) {
+        console.log(e)
+    }
+
+} 
+
+start()
