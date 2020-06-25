@@ -115,7 +115,7 @@ app.post('/delete', async (req, res) => {
 })
 
 // создаём порт и включаем сервер
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT
 
 
 async function start() {
@@ -126,8 +126,8 @@ async function start() {
             useFindAndModify: false,
             useUnifiedTopology: true
         })
-        app.listen(process.env.PORT, () => {
-            console.log(`Server is running on PORT ${process.env.PORT}`)
+        app.listen(PORT, () => {
+            console.log(`Server is running on PORT ${PORT}`)
         })
     } catch(e) {
         console.log(e)
