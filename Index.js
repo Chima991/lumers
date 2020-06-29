@@ -73,6 +73,7 @@ app.post('/addfilm', async (req, res) => {
 })
 
 
+
 app.get('/:id', async (req, res) => { // С помощью двоеточия указывается динамические параметры. ID каждого фильма является эндпоинтом для страницы каждого фильма
     try {
         const currentFilm = await Film.findById(req.params.id)
